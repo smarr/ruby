@@ -221,7 +221,7 @@ class Vector
   end
 end
 
-class Set
+class SomSet
   def initialize(size = INITIAL_SIZE)
     @items = Vector.new(size)
   end
@@ -257,7 +257,7 @@ class Set
   end
 end
 
-class IdentitySet < Set
+class SomIdentitySet < SomSet
   def contains(obj)
     has_some { |it| it.equal? obj }
   end

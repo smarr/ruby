@@ -167,8 +167,8 @@ class SimpleLoop
     @nesting_level = 0
     @depth_level   = 0
     @counter       = 0
-    @basic_blocks  = IdentitySet.new
-    @children      = IdentitySet.new
+    @basic_blocks  = SomIdentitySet.new
+    @children      = SomIdentitySet.new
 
     @basic_blocks.add(bb) if bb
 
@@ -411,7 +411,7 @@ class HavlakLoopFinder
     end
 
     (0...size).each do |i|
-      @non_back_preds.append(Set.new)
+      @non_back_preds.append(SomSet.new)
       @back_preds.append(Vector.new)
       @nodes[i] = UnionFindNode.new
     end
