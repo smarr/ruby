@@ -6,9 +6,12 @@ stages:
    build-ruby: &RUBY_BUILD |
      ./autogen.sh
      mkdir -p build
+     mkdir -p inst
+     ROOT_PATH=`pwd`
      cd build
-     ../configure --disable-jit-support --disable-install-doc
-     make
+     ../configure --disable-jit-support --disable-install-doc --prefix=${ROOT_PATH}/inst
+     make -j8
+     make install
      cd ..
 
 # Run Benchmarks
@@ -17,7 +20,7 @@ benchmark1:
   tags: [yuria]
   script:
     - *RUBY_BUILD
-    
+
     # back to the harddisk so that rebench can read the version details
     - cd faststart
     - rebench -c --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" -c rebench.conf benchmark     m:yuria
@@ -40,7 +43,7 @@ benchmark3:
   tags: [yuria3]
   script:
     - *RUBY_BUILD
-    
+
     # back to the harddisk so that rebench can read the version details
     - cd faststart
     - rebench -c --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" -c rebench.conf benchmark     m:yuria3
