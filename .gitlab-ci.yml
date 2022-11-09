@@ -34,7 +34,7 @@ benchmark2:
 
     # back to the harddisk so that rebench can read the version details
     - cd faststart
-    - rebench -c --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" -c rebench.conf benchmark-micros
+    # - rebench -c --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" -c rebench.conf benchmark-micros
     - rebench -c --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" -c rebench.conf benchmark     m:yuria2
 
 # Run Benchmarks
