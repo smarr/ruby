@@ -1,9 +1,7 @@
 <h1>Publications</h1>
 
 {% assign year = 0 %}
-{% assign bibs = papers
-        | sort: "publication_date"
-        | reverse %}
+{% assign bibs = papers %}
 
 {% for bib in bibs %}
 {{ bib.title }}
