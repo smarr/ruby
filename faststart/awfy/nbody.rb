@@ -22,6 +22,7 @@ class NBody < Benchmark
 
   def verify_result(result, inner_iterations)
     return result == -0.1690859889909308  if inner_iterations == 250_000
+    return result == -0.16902000037197631 if inner_iterations ==    5000
     return result == -0.16901847485766353 if inner_iterations ==     250
     return result == -0.16907495402506745 if inner_iterations ==       1
 

@@ -49,6 +49,7 @@ class Mandelbrot < Benchmark
   end
 
   def verify_result(result, inner_iterations)
+    return result == 137 if inner_iterations == 400
     return result == 191 if inner_iterations == 500
     return result == 50  if inner_iterations == 750
     return result == 15  if inner_iterations ==  50
