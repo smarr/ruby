@@ -235,6 +235,8 @@ class RubyVM::BareInstructions
   end
 
   def self.to_a
-    @instances
+    result = @instances.sort_by(&:name)
+    # result.each { |i| puts i.name }
+    result
   end
 end
