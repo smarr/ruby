@@ -8,9 +8,9 @@ require 'performance/tests/sm-de/data'
 class LiquidRenderBibs < Benchmark
 
   def initialize
-    @template = Liquid::Template.new.parse(File.read("#{__dir__}/../liquid/performance/tests/sm-de/papers.liquid"))
+    @template = Liquid::Template.new.parse(File.read("#{__dir__}/../liquid/performance/tests/sm-de/papers.liquid", :encoding => 'utf-8'))
 
-    @result = File.read("#{__dir__}/../liquid/performance/tests/sm-de/result.html")
+    @result = File.read("#{__dir__}/../liquid/performance/tests/sm-de/result.html", :encoding => 'utf-8')
 
     @data = {'papers'=> get_bib_data}
   end
